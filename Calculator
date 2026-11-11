@@ -1,0 +1,72 @@
+import math
+while True:
+    print("Voici un calculateur astronome.")
+    print("Vous pouvez calculer :\n une gravité (gra),\n une révolution (rév),\n une vitesse de libération (vitlib),\n une densité (dens),\n une température d'un corps du système solaire (tempsysol),\n une magnitude d'un objet du système solaire (magsysol),\n une distance avec une parallaxe (dispar),\n une luminosité (lum), une vitesse orbitale d'une orbite elliptique (vitorbell),\n une période de rotation (rot),\n une vitesse d'échappement orbitale (vitechorb) et\n une masse d'étoile avec sa luminosité (masslum).")
+    opération = input("Que voulez-vous calculer ? (ou 'quit' pour quitter) ")
+    if opération.lower() == "quit":
+        print("Au revoir !")
+        break
+    if opération == "gra":
+        masse = float(input("Entrez la masse de l'objet (en kg) : "))
+        rayon = float(input("Entrez le rayon de l'objet (en m) : "))
+        gravité = (6.67430e-11 * masse) / (rayon ** 2)
+        print(f"La gravité est de {gravité} m/s².")
+    if opération == "rév":
+        masse = float(input("Entrez la masse de l'objet (en kg) : "))
+        rayon = float(input("Entrez le rayon de l'objet (en m) : "))
+        révolution = (2 * 3.14159 * rayon) / ((6.67430e-11 * masse) / (rayon ** 2)) ** 0.5
+        print(f"La période de révolution est de {révolution} secondes.")
+    if opération == "vitlib":
+        masse = float(input("Entrez la masse de l'objet (en kg) : "))
+        rayon = float(input("Entrez le rayon de l'objet (en m) : "))
+        vitesse_libération = (2 * 6.67430e-11 * masse / rayon) ** 0.5
+        print(f"La vitesse de libération est de {vitesse_libération} m/s.")
+    if opération == "dens":
+        masse = float(input("Entrez la masse de l'objet (en kg) : "))
+        rayon = float(input("Entrez le rayon de l'objet (en m) : "))
+        densité = masse / ((4/3) * 3.14159 * (rayon ** 3))
+        print(f"La densité est de {densité} kg/m³.")
+    if opération == "tempsysol":
+        albédo = float(input("Entrez l'albédo de l'objet (entre 0 et 1) : "))
+        distance = float(input("Entrez la distance de l'objet au Soleil (en m) : "))
+        température = (
+            ((1 - albédo) * 3.828e26) /
+            (16 * math.pi * 5.670374419e-8 * distance ** 2)
+        ) ** 0.25
+        celsius = température - 273.15
+        print(f"La température d'équilibre est de {température:.2f} K ({celsius:.2f} °C).")
+    if opération == "magsysol":
+        magnitude = float(input("Entrez la magnitude de l'objet : "))
+        distance = float(input("Entrez la distance de l'objet au Soleil (en m) : "))
+        magnitude_apparente = magnitude + 5 * (math.log10(distance / 1.496e+11))
+        print(f"La magnitude apparente de l'objet est de {magnitude_apparente}.")
+    if opération == "dispar":
+        parallaxe = float(input("Entrez la parallaxe de l'objet (en arcsecondes) : "))
+        distance_m = 1 / (parallaxe / 3600) * 3.086e+16
+        distance_km = distance_m / 1000
+        print(f"La distance de l'objet est de {distance_km:.2f} km.")
+    if opération == "lum":
+        magnitude = float(input("Entrez la magnitude de l'objet : "))
+        distance = float(input("Entrez la distance de l'objet (en m) : "))
+        luminosité = 10 ** ((4.83 - magnitude) / 2.5) * (distance / 3.086e+16) ** 2
+        print(f"La luminosité de l'objet est de {luminosité:.2f} L☉.")
+    if opération == "vitorbell":
+        masse = float(input("Entrez la masse de l'objet central (en kg) : "))
+        distance_instantanée = float(input("Entrez la distance instantanée de l'objet (en m) : "))
+        demi_grand_axe = float(input("Entrez le demi-grand axe de l'orbite (en m) : "))
+        vitesse_orbitale = (6.67430e-11 * masse / demi_grand_axe) ** 0.5
+        print(f"La vitesse orbitale de l'objet est de {vitesse_orbitale:.2f} m/s.")
+    if opération == "rot":
+        rayon = float(input("Entrez le rayon de l'objet (en m) : "))
+        vitesse_rotation_équatoriale = float(input("Entrez la vitesse de rotation équatoriale (en m/s) : "))
+        période_rotation = (2 * 3.14159 * rayon) / vitesse_rotation_équatoriale
+        print(f"La période de rotation est de {période_rotation:.2f} secondes.")
+    if opération == "vitechorb":
+        masse = float(input("Entrez la masse de l'objet central (en kg) : "))
+        distance = float(input("Entrez la distance de l'objet (en m) : "))
+        vitesse_échappement_orbitale = (2 * 6.67430e-11 * masse / distance) ** 0.5
+        print(f"La vitesse d'échappement orbitale est de {vitesse_échappement_orbitale:.2f} m/s.")
+    if opération == "masslum":
+        luminosité = float(input("Entrez la luminosité de l'étoile (en L☉) : "))
+        masse = (luminosité) ** (1 / 3.5)
+        print(f"La masse de l'étoile est d'environ {masse:.2f} M☉.")
