@@ -1,7 +1,7 @@
 import math
 while True:
     print("Voici un calculateur astronome.")
-    print("Vous pouvez calculer :\n une gravité (gra),\n une révolution (rév),\n une vitesse de libération (vitlib),\n une densité (dens),\n une température d'un corps du système solaire (tempsysol),\n une magnitude d'un objet du système solaire (magsysol),\n une distance avec une parallaxe (dispar),\n une luminosité (lum), une vitesse orbitale d'une orbite elliptique (vitorbell),\n une période de rotation (rot),\n une vitesse d'échappement orbitale (vitechorb) et\n une masse d'étoile avec sa luminosité (masslum).")
+    print("Vous pouvez calculer :\n une gravité (gra),\n une révolution (rev),\n une vitesse de libération (vitlib),\n une densité (dens),\n une température d'un corps du système solaire (tempsysol),\n une magnitude d'un objet du système solaire (magsysol),\n une distance avec une parallaxe (dispar),\n une luminosité (lum), une vitesse orbitale d'une orbite elliptique (vitorbell),\n une période de rotation (rot),\n une vitesse d'échappement orbitale (vitechorb) et\n une masse d'étoile avec sa luminosité (masslum).")
     opération = input("Que voulez-vous calculer ? (ou 'quit' pour quitter) ")
     if opération.lower() == "quit":
         print("Au revoir !")
