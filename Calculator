@@ -11,7 +11,7 @@ while True:
         rayon = float(input("Entrez le rayon de l'objet (en m) : "))
         gravité = (6.67430e-11 * masse) / (rayon ** 2)
         print(f"La gravité est de {gravité} m/s².")
-    if opération == "rév":
+    if opération == "rev":
         masse = float(input("Entrez la masse de l'objet (en kg) : "))
         rayon = float(input("Entrez le rayon de l'objet (en m) : "))
         révolution = (2 * 3.14159 * rayon) / ((6.67430e-11 * masse) / (rayon ** 2)) ** 0.5
